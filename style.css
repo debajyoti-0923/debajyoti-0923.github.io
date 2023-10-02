@@ -1,0 +1,131 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --orange: #ffc02e;
+    --yellow: #f8ed16;
+    --winning-blocks: #2d414b;
+    --playable-tile: #f9f26b;
+    --black: rgb(0,0,0);
+    --bg: #37505C;
+}
+
+body {
+    color: var(--orange);
+    font-family: 'Finger Paint', cursive;
+}
+h1 {
+    font-size: 70px;
+    text-transform: uppercase;
+}
+
+h2{
+    font-size: 40px;
+    text-transform: uppercase;
+    margin-top: 40px;
+}
+
+.container {
+    padding: 40px;
+    height: 150vh;
+    display: flex;
+    /* justify-content: center; */
+    align-items: center;
+    flex-direction: column;
+    background-color: #37505C;
+}
+
+#gameboard {
+    width: 600px;
+    display: flex;
+    flex-wrap: wrap;
+    /* margin-top: 40px; */
+}
+
+.gameboard2 {
+    width: 150px;
+    height: 150px;
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 0px;
+}
+.gameboarddiv{
+    width: 170px;
+    height: 170px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--playable-tile);
+    border-radius: 15px;
+    margin-top: 0px;
+    color: var(--black)
+}
+.x{
+    width: 170px;
+    height: 170px;
+    display:none;
+    align-items: center;
+    justify-content: center;
+    font-size: 200px;
+}
+.o{
+    width: 170px;
+    height: 170px;
+    display:none;
+    align-items: center;
+    justify-content: center;
+    font-size: 200px;
+}
+.box2 {
+    height: 50px;
+    width: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 40px;
+    border-right: 2px dashed;
+    border-bottom: 2px dashed;
+}
+.box2:nth-child(3n) {
+    border-right: none;
+}
+.box2:nth-child(6) ~ .box2 {
+    border-bottom: none;
+} 
+
+.box {
+    height: 200px;
+    width: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--orange);
+    font-size: 150px;
+    border-right: 5px solid;
+    border-bottom: 5px solid;
+
+}
+.box:nth-child(3n) {
+    border-right: none;
+}
+.box:nth-child(6) ~ .box {
+    border-bottom: none;
+} 
+button {
+    padding: 10px 20px;
+    border-radius: 10px;
+    background-color: var(--orange);
+    color: #333;
+    border-color: var(--orange);
+    font-size: 18px;
+    transition: 200ms transform;
+    font-weight: 600;
+}
+button:hover {
+    cursor: pointer;
+    transform: translateY(-2px);
+}

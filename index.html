@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tic Tac Toe</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Finger+Paint&display=swap" rel="stylesheet"> 
+</head>
+<body>
+    <div class="container">
+        <h1 id="playerText">Super Tic Tac Toe</h1>
+        <div>
+            <button id="restartBtn">Restart</button>
+            <button id="comp">Computer</button>
+        </div>
+        <h2 id="turn">player x</h1>
+        <div id="gameboard">
+            <div class="box" id="0">
+                <div class="gameboarddiv" id="tile0">
+                    <div class="gameboard2">
+                        <div class="box2" id="b00"></div>
+                        <div class="box2" id="b01"></div>
+                        <div class="box2" id="b02"></div>
+                        <div class="box2" id="b03"></div>
+                        <div class="box2" id="b04"></div>
+                        <div class="box2" id="b05"></div>
+                        <div class="box2" id="b06"></div>
+                        <div class="box2" id="b07"></div>
+                        <div class="box2" id="b08"></div>
+                    </div>
+                </div>
+                <div class="x" id="x0">X</div>
+                <div class="o" id="o0">O</div>
+            </div>
+            <div class="box" id="1">
+                <div class="gameboarddiv" id="tile1">
+
+                    <div class="gameboard2">
+                        <div class="box2" id="b10"></div>
+                        <div class="box2" id="b11"></div>
+                        <div class="box2" id="b12"></div>
+                        <div class="box2" id="b13"></div>
+                        <div class="box2" id="b14"></div>
+                        <div class="box2" id="b15"></div>
+                        <div class="box2" id="b16"></div>
+                        <div class="box2" id="b17"></div>
+                        <div class="box2" id="b18"></div>
+                    </div>
+                </div>
+                <div class="x" id="x1">X</div>
+                <div class="o" id="o1">O</div>
+            </div>
+            <div class="box" id="2">
+                <div class="gameboarddiv" id="tile2">
+
+                    <div class="gameboard2">
+                        <div class="box2" id="b20"></div>
+                        <div class="box2" id="b21"></div>
+                        <div class="box2" id="b22"></div>
+                        <div class="box2" id="b23"></div>
+                        <div class="box2" id="b24"></div>
+                        <div class="box2" id="b25"></div>
+                        <div class="box2" id="b26"></div>
+                        <div class="box2" id="b27"></div>
+                        <div class="box2" id="b28"></div>
+                    </div>
+                </div>
+                <div class="x" id="x2">X</div>
+                <div class="o" id="o2">O</div>
+            </div>
+            <div class="box" id="3">
+                <div class="gameboarddiv" id="tile3">
+                    <div class="gameboard2">
+                        <div class="box2" id="b30"></div>
+                        <div class="box2" id="b31"></div>
+                        <div class="box2" id="b32"></div>
+                        <div class="box2" id="b33"></div>
+                        <div class="box2" id="b34"></div>
+                        <div class="box2" id="b35"></div>
+                        <div class="box2" id="b36"></div>
+                        <div class="box2" id="b37"></div>
+                        <div class="box2" id="b38"></div>
+                    </div>
+                </div>
+                <div class="x" id="x3">X</div>
+                <div class="o" id="o3">O</div>
+            </div>
+            <div class="box" id="4">
+                <div class="gameboarddiv" id="tile4">
+
+                    <div class="gameboard2">
+                        <div class="box2" id="b40"></div>
+                        <div class="box2" id="b41"></div>
+                        <div class="box2" id="b42"></div>
+                        <div class="box2" id="b43"></div>
+                        <div class="box2" id="b44"></div>
+                        <div class="box2" id="b45"></div>
+                        <div class="box2" id="b46"></div>
+                        <div class="box2" id="b47"></div>
+                        <div class="box2" id="b48"></div>
+                    </div>
+                </div>
+                <div class="x" id="x4">X</div>
+                <div class="o" id="o4">O</div>
+            </div>
+            <div class="box" id="5">
+                <div class="gameboarddiv" id="tile5">
+
+                    <div class="gameboard2">
+                        <div class="box2" id="b50"></div>
+                        <div class="box2" id="b51"></div>
+                        <div class="box2" id="b52"></div>
+                        <div class="box2" id="b53"></div>
+                        <div class="box2" id="b54"></div>
+                        <div class="box2" id="b55"></div>
+                        <div class="box2" id="b56"></div>
+                        <div class="box2" id="b57"></div>
+                        <div class="box2" id="b58"></div>
+                    </div>
+                </div>
+                <div class="x" id="x5">X</div>
+                <div class="o" id="o5">O</div>
+            </div>
+            <div class="box" id="6">
+                <div class="gameboarddiv" id="tile6">
+                    <div class="gameboard2">
+                        <div class="box2" id="b60"></div>
+                        <div class="box2" id="b61"></div>
+                        <div class="box2" id="b62"></div>
+                        <div class="box2" id="b63"></div>
+                        <div class="box2" id="b64"></div>
+                        <div class="box2" id="b65"></div>
+                        <div class="box2" id="b66"></div>
+                        <div class="box2" id="b67"></div>
+                        <div class="box2" id="b68"></div>
+                    </div>
+                </div>
+                <div class="x" id="x6">X</div>
+                <div class="o" id="o6">O</div>
+            </div>
+            <div class="box" id="7">
+                <div class="gameboarddiv" id="tile7">
+                    <div class="gameboard2">
+                        <div class="box2" id="b70"></div>
+                        <div class="box2" id="b71"></div>
+                        <div class="box2" id="b72"></div>
+                        <div class="box2" id="b73"></div>
+                        <div class="box2" id="b74"></div>
+                        <div class="box2" id="b75"></div>
+                        <div class="box2" id="b76"></div>
+                        <div class="box2" id="b77"></div>
+                        <div class="box2" id="b78"></div>
+                    </div>
+                </div>
+                <div class="x" id="x7">X</div>
+                <div class="o" id="o7">O</div>
+            </div>
+            <div class="box" id="8">
+                <div class="gameboarddiv" id="tile8">
+                    <div class="gameboard2">
+                        <div class="box2" id="b80"></div>
+                        <div class="box2" id="b81"></div>
+                        <div class="box2" id="b82"></div>
+                        <div class="box2" id="b83"></div>
+                        <div class="box2" id="b84"></div>
+                        <div class="box2" id="b85"></div>
+                        <div class="box2" id="b86"></div>
+                        <div class="box2" id="b87"></div>
+                        <div class="box2" id="b88"></div>
+                    </div>
+                </div>
+                <div class="x" id="x8">X</div>
+                <div class="o" id="o8">O</div>
+            </div>
+        </div>
+    </div>
+    
+    <script src="./game_logic.js"></script>
+</body>
+</html>
