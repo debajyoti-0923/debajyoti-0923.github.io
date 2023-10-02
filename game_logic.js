@@ -24,7 +24,6 @@ const startGame = () => {
 }
 function getRandomInt() {
     let x= Math.floor(Math.random() * 10)
-    console.log("random "+x)
     if(x>8)
         return getRandomInt()
     else return x
@@ -39,34 +38,41 @@ function boxClicked(e) {
     play(x,y)
 }
 function toggleplay(x,y){
-    if (spaces[y]=='X'|| spaces[y]=='O')
+
+    if ((spaces[y]=='X' || spaces[y]=='O') || spaces[y]=='D'){
         playable_tile=-1
-    else
+    }
+    else if(playable_tile!=-2)
         playable_tile=y
-    console.log("play "+playable_tile)
+    
     tiles.forEach( tile => {
         if (playable_tile!=-1 && tile.id!='tile'+playable_tile){
             tile.style.backgroundColor=bgcolor
             tile.style.color=bgfont
         }else{
-            tile.style.backgroundColor=playcolor
-            tile.style.color=playfont
+            if(spaces[tile.id[4]]!='D'){
+                tile.style.backgroundColor=playcolor
+                tile.style.color=playfont
+            }
         }
     })
 }
 function playcomp(y){
+
     let cy=getRandomInt()
-    console.log(cy)
+    if((spaces[y]=='X' || spaces[y]=='O') || spaces[y]=='D')
+        return playcomp(cy)
     if(spaces[y][cy]!=null)
         return playcomp(y)
     else
         play(y,cy)
 }
 function play(x,y){
-    console.log(x,y)
+        
     if(playable_tile!=-1 && playable_tile!=x)
         return
-
+    if((spaces[x]=='X' || spaces[x]=='O') || spaces[x]=='D')
+        return
     if(spaces[x][y]==null){
         spaces[x][y]=currentPlayer
         document.getElementById('b'+x+y).innerText=currentPlayer
@@ -81,7 +87,7 @@ function play(x,y){
                 let box=document.getElementById("o"+x)
                 box.style.display='flex'
             }
-            console.log(x==playable_tile)
+            // console.log(x==playable_tile)
             if(x==playable_tile)
                 playable_tile=-1
             spaces[x]=currentPlayer
@@ -91,6 +97,13 @@ function play(x,y){
                 winning_blocks.map( box => document.getElementById(box).style.backgroundColor=winnerIndicator)
                 return
             }
+            if(ifdraw(spaces)){
+                playable_tile=-2
+                playerText.innerText = "Draw!"
+            }
+        }
+        else if(ifdraw(spaces[x])){
+            spaces[x]='D'
         }
 
         currentPlayer = currentPlayer == X_TEXT ? O_TEXT : X_TEXT
@@ -113,12 +126,18 @@ const winningCombos = [
     [0,4,8],
     [2,4,6]
 ]
+function ifdraw(x){
+    for(ele of x){
+        if((ele!='X' && ele!='O') && ele!='D')
+            return false
+    }
+    return true
+}
 
 function wonTile(x) {
     for (const condition of winningCombos) {
         let [a, b, c] = condition
-
-        if(spaces[x][a] && (spaces[x][a] == spaces[x][b] && spaces[x][a] == spaces[x][c])) {
+        if(spaces[x][a] && (spaces[x][a]==spaces[x][b] ) && (spaces[x][b] == spaces[x][c])) {
             return true
         }
     }
@@ -128,7 +147,7 @@ function wonGame() {
     for (const condition of winningCombos) {
         let [a, b, c] = condition
 
-        if(spaces[a] && (spaces[a] == spaces[b] && spaces[a] == spaces[c])) {
+        if(spaces[a] && (spaces[a]==spaces[b]) && (spaces[b] == spaces[c])) {
             playable_tile=-2
             return [a,b,c]
         }
