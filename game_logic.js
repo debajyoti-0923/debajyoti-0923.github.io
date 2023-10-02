@@ -141,7 +141,7 @@ restartBtn.addEventListener('click', restart)
 function restart() {
     playable_tile=-1
     spaces = Array(9).fill(null).map(() => Array(9).fill(null));
-
+    player.innerText='player x'
     boxes.forEach( box => {
         box.innerText = ''
     })
