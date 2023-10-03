@@ -4,6 +4,10 @@ let compbtn=document.getElementById('comp')
 let boxes = Array.from(document.getElementsByClassName('box2'))
 let tiles = Array.from(document.getElementsByClassName('gameboarddiv'))
 let player = document.getElementById('turn')
+let notify=document.getElementById("modal")
+let notifytext=document.getElementById("notification")
+let blur_=document.getElementById("blurdiv")
+let rstbtn=document.getElementById("rstbtn")
 
 let winnerIndicator = getComputedStyle(document.body).getPropertyValue('--winning-blocks')
 let bgcolor=getComputedStyle(document.body).getPropertyValue('--bg')
@@ -92,14 +96,20 @@ function play(x,y){
                 playable_tile=-1
             spaces[x]=currentPlayer
             if(wonGame()!==false){
-                playerText.innerHTML = `${currentPlayer} has won!`
+                playerText.innerHTML = `${currentPlayer} has WON!`
                 let winning_blocks=wonGame()
                 winning_blocks.map( box => document.getElementById(box).style.backgroundColor=winnerIndicator)
+                notify.style.display="flex"
+                notifytext.innerText=`${currentPlayer} has WON!`
+                blur_.style.display="block"
                 return
             }
             if(ifdraw(spaces)){
                 playable_tile=-2
                 playerText.innerText = "Draw!"
+                notify.style.display="flex"
+                notifytext.innerText=`DRAW !`
+                blur_.style.display="block"
             }
         }
         else if(ifdraw(spaces[x])){
@@ -156,8 +166,11 @@ function wonGame() {
 }
 
 restartBtn.addEventListener('click', restart)
+rstbtn.addEventListener('click',restart)
 
 function restart() {
+    notify.style.display="none"
+    blur_.style.display="none"
     playable_tile=-1
     spaces = Array(9).fill(null).map(() => Array(9).fill(null));
     player.innerText='player x'
